@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changu Mangu Family Restaurant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fafafa;
+            color: #4a4a4a;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        nav {
+            background-color: grey;
+            width: 100%;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffca28;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            margin-top: 80px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+        }
+
+        h1 {
+            color: #d32f2f;
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p:first-child {
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .contact-info {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0d47a1;
+        }
+
+        footer {
+            background-color: #1976d2;
+            color: white;
+            padding: 15px;
+            font-size: 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        footer:hover {
+            background-color: #1565c0;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1>Welcome to Changu Mangu Restaurant</h1>
+        <p>Dear Guest,</p>
+        <p>We are thrilled to welcome you to our restaurant, where love and passion combine to create the most delightful experience. Serving over one lakh guests every month across 10+ outlets, we are deeply grateful for your continued support!</p>
+        <p>Our kitchens prepare over 100 delicious dishes every day. If anything doesn't meet your expectations, we promise to make it right. Your satisfaction is our priority.</p>
+        
+        <div class="contact-info">
+            <p>If you have any feedback or questions, feel free to reach out to us:</p>
+            <a href="mailto:harshkumarmishra2006@gmail.com">harshkumarmishra2006@gmail.com</a> <br>
+            Or contact our operations team at: <br> +91 91228XXXXX
+        </div>
+        
+        <footer>
+            &copy; Changu Mangu Restaurant, 2024. All rights reserved.
+        </footer>
+    </div>
+</body>
+</html>

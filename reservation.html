@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Reservation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #f0f4f8, #e0e7ef);
+            color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: #3498db;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            padding: 15px 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background-color: #2980b9;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="date"],
+        form input[type="time"],
+        form input[type="number"],
+        form select,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #c0392b;
+        }
+
+        #reservation-success {
+            display: none;
+            margin: 20px auto;
+            padding: 15px;
+            max-width: 600px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #certificate-canvas {
+            display: none;
+            margin: 20px auto;
+            border: 2px solid #e74c3c;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+
+        #download-certificate {
+            display: none;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        #download-certificate:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+    
+    <h1>Make a Reservation</h1>
+    
+    <div id="reservation-success">
+        <p>Thank you for making a reservation! Your certificate is ready below.</p>
+    </div>
+
+    <form id="reservation-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="guests">Number of Guests:</label>
+        <input type="number" id="guests" name="guests" required min="1" max="20">
+
+        <label for="seating">Preferred Seating:</label>
+        <select id="seating" name="seating">
+            <option value="Indoor">Indoor</option>
+            <option value="Outdoor">Outdoor</option>
+            <option value="No preference">No Preference</option>
+        </select>
+
+        <label for="requests">Special Requests:</label>
+        <textarea id="requests" name="requests" rows="4"></textarea>
+
+        <button type="submit">Make a Reservation</button>
+    </form>
+
+    <canvas id="certificate-canvas" width="600" height="600"></canvas>
+    <button id="download-certificate">Download Certificate</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("reservation-form");
+        const successMessage = document.getElementById("reservation-success");
+        const certificateCanvas = document.getElementById("certificate-canvas");
+        const downloadButton = document.getElementById("download-certificate");
+
+        successMessage.style.display = "none";
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const name = form.name.value;
+            const phone = form.phone.value;
+            const email = form.email.value;
+            const date = form.date.value;
+            const time = form.time.value;
+            const guests = form.guests.value;
+            const seating = form.seating.value;
+            const requests = form.requests.value;
+
+            successMessage.style.display = "block";
+            downloadButton.style.display = "inline";
+
+            const ctx = certificateCanvas.getContext("2d");
+
+            ctx.clearRect(0, 0, certificateCanvas.width, certificateCanvas.height);
+            ctx.fillStyle = "#f7f9fc";
+            ctx.fillRect(0, 0, certificateCanvas.width, certificateCanvas.height);
+
+            const logo = new Image();
+            logo.src = 'new logo.png'; 
+            logo.onload = () => {
+                const logoWidth = 80; 
+                const logoHeight = 80; 
+                ctx.drawImage(logo, (certificateCanvas.width - logoWidth) / 2, 10, logoWidth, logoHeight);
+
+                ctx.font = "bold 32px Arial";
+                ctx.fillStyle = "#e74c3c";
+                ctx.textAlign = "center";
+                ctx.fillText("Reservation Certificate", certificateCanvas.width / 2, 120);
+
+                ctx.font = "20px Arial";
+                ctx.fillStyle = "#333";
+                ctx.fillText("Thank you for choosing us!", certificateCanvas.width / 2, 160);
+
+                ctx.textAlign = "left";
+                ctx.font = "18px Arial";
+                ctx.fillStyle = "#333";
+                ctx.fillText(`Name: ${name}`, 50, 220);
+                ctx.fillText(`Phone: ${phone}`, 50, 260);
+                ctx.fillText(`Email: ${email}`, 50, 300);
+                ctx.fillText(`Date: ${date}`, 50, 340);
+                ctx.fillText(`Time: ${time}`, 50, 380);
+                ctx.fillText(`Guests: ${guests}`, 50, 420);
+                ctx.fillText(`Seating: ${seating}`, 50, 460);
+                if (requests) ctx.fillText(`Requests: ${requests}`, 50, 500);
+
+                ctx.font = "italic 16px Arial";
+                ctx.fillStyle = "#888";
+                ctx.textAlign = "center";
+                ctx.fillText("We look forward to serving you!", certificateCanvas.width / 2, 540);
+
+                ctx.font = "bold 16px Arial";
+                ctx.fillStyle = "#e74c3c";
+                ctx.textAlign = "center";
+                ctx.fillText("Verified by Changu Mangu Restraunt", certificateCanvas.width / 2, 570);
+
+                certificateCanvas.style.display = "block";
+            };
+        });
+
+        downloadButton.addEventListener("click", () => {
+            const link = document.createElement("a");
+            link.href = certificateCanvas.toDataURL("image/png");
+            link.download = "Reservation_Certificate.png";
+            link.click();
+        });
+    });    </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changu Mangu Restaurant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: url(backgroundblackandwhiteimage.png) no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        img {
+            margin-top: 20px;
+            width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        marquee h1 {
+            font-size: 3em;
+            color: yellow;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            margin: 30px 0;
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        nav ul a {
+            text-decoration: none;
+            color: #FFD700;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+        nav ul a:hover {
+            color: #FF4500;
+        }
+
+        .content {
+            max-width: 800px;
+            margin-top: 30px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            text-align: left;
+        }
+
+        .content h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #FFD700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin-top: 20px;
+            color: #FFD700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .menu-preview, .specials, .testimonials {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .menu-preview img, .specials img, .testimonials img {
+            width: 150px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            margin-top: 10px;
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #FFD700;
+            font-size: 0.9em;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            text-align: center;
+        }
+        figcaption{
+            color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <center><img src="new logo.png" alt="changu Mangu Restaurant" width="200"></center>
+    <marquee><h1>CHANGU MANGU RESTAURANT</h1></marquee>
+    <nav>
+        <ul>
+            <a href="about.html">About Us</a>
+            <a href="menu.html">Menu</a>
+            <a href="reservation.html">Reservation</a>
+            <a href="hiring.html">Staff Hiring</a>
+            <a href="contact.html">Contact Us</a>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h2>Welcome to Changu Mangu Restaurant</h2>
+        <p>Experience the best of both traditional and contemporary cuisine at Changu Mangu Restaurant. Our chefs use fresh ingredients to create delicious and memorable dishes that bring families together.</p>
+        
+        <div class="menu-preview">
+            <h3 class="section-title">Popular Menu Items</h3>
+            <p>Try our bestsellers that everyone loves:</p>
+            <img src="mushroom Cheese Grilled Sandwich.jpeg" alt="Dish 1">
+            <figcaption>Mushroom Cheese Grilled Sandwich</figcaption>
+            <img src="Tandoori Paneer Pizza.webp" alt="Dish 2">
+            <figcaption>Tandoori Paneer Pizza</figcaption>
+            <img src="latte.jpg" alt="Dish 3">
+            <figcaption>Latte</figcaption>
+        </div>
+
+        <div class="specials">
+            <h3 class="section-title">Today’s Specials</h3>
+            <p>Check out our mouth-watering specials available only for today!</p>
+            <img src="americano.webp" alt="Special Dish 1">
+            <figcaption>Americano</figcaption>
+            <img src="classic fruit salad.jpg" alt="Special Dish 2">
+            <figcaption>Classic Fruit Salad</figcaption>
+        </div>
+
+        <div class="testimonials">
+            <h3 class="section-title">Customer Testimonials</h3>
+            <p>Don’t just take our word for it – hear what our guests are saying:</p>
+            <blockquote>"Amazing food and friendly staff! Highly recommend."</blockquote>
+            <blockquote>"Perfect spot for family dinners, we love it!"</blockquote>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Changu Mangu Restaurant 
+    </footer>
+</body>
+</html>
